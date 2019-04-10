@@ -56,112 +56,17 @@ void windows() {
 }
 
 void road_markings() {
-    
-    glPushMatrix();
-        glColor3f(255, 255, 255);
-        glTranslatef(3.2, -0.4, 0);
-        glScalef(0.4, 0.2, 0.01);
-        glutSolidCube(0.4);
-    glPopMatrix();
-
-    glPushMatrix();
-        glColor3f(255, 255, 255);
-        glTranslatef(2.9, -0.4, 0);
-        glScalef(0.4, 0.2, 0.01);
-        glutSolidCube(0.4);
-    glPopMatrix();
-
-    glPushMatrix();
-        glColor3f(255, 255, 255);
-        glTranslatef(2.6, -0.4, 0);
-        glScalef(0.4, 0.2, 0.01);
-        glutSolidCube(0.4);
-    glPopMatrix();
-
-    glPushMatrix();
-        glColor3f(255, 255, 255);
-        glTranslatef(2.3, -0.4, 0);
-        glScalef(0.4, 0.2, 0.01);
-        glutSolidCube(0.4);
-    glPopMatrix();
-
-    glPushMatrix();
-        glColor3f(255, 255, 255);
-        glTranslatef(2, -0.4, 0);
-        glScalef(0.4, 0.2, 0.01);
-        glutSolidCube(0.4);
-    glPopMatrix();
-
-    glPushMatrix();
-        glColor3f(255, 255, 255);
-        glTranslatef(1.7, -0.4, 0);
-        glScalef(0.4, 0.2, 0.01);
-        glutSolidCube(0.4);
-    glPopMatrix();
-
-    glPushMatrix();
-        glColor3f(255, 255, 255);
-        glTranslatef(1.4, -0.4, 0);
-        glScalef(0.4, 0.2, 0.01);
-        glutSolidCube(0.4);
-    glPopMatrix();
-
-    glPushMatrix();
-        glColor3f(255, 255, 255);
-        glTranslatef(1.1, -0.4, 0);
-        glScalef(0.4, 0.2, 0.01);
-        glutSolidCube(0.4);
-    glPopMatrix();
-
-    glPushMatrix();
-        glColor3f(255, 255, 255);
-        glTranslatef(0.8, -0.4, 0);
-        glScalef(0.4, 0.2, 0.01);
-        glutSolidCube(0.4);
-    glPopMatrix();
-
-    glPushMatrix();
-        glColor3f(255, 255, 255);
-        glTranslatef(0.5, -0.4, 0);
-        glScalef(0.4, 0.2, 0.01);
-        glutSolidCube(0.4);
-    glPopMatrix();
-
-    glPushMatrix();
-        glColor3f(255, 255, 255);
-        glTranslatef(0.2, -0.4, 0);
-        glScalef(0.4, 0.2, 0.01);
-        glutSolidCube(0.4);
-    glPopMatrix();
-
-    glPushMatrix();
-        glColor3f(255, 255, 255);
-        glTranslatef(-0.1, -0.4, 0);
-        glScalef(0.4, 0.2, 0.01);
-        glutSolidCube(0.4);
-    glPopMatrix();
-    
-    glPushMatrix();
-        glColor3f(255, 255, 255);
-        glTranslatef(-0.4, -0.4, 0);
-        glScalef(0.4, 0.2, 0.01);
-        glutSolidCube(0.4);
-    glPopMatrix();
-
-    glPushMatrix();
-        glColor3f(255, 255, 255);
-        glTranslatef(-0.7, -0.4, 0);
-        glScalef(0.4, 0.2, 0.01);
-        glutSolidCube(0.4);
-    glPopMatrix();
-
-    glPushMatrix();
-        glColor3f(255, 255, 255);
-        glTranslatef(-1, -0.4, 0);
-        glScalef(0.4, 0.2, 0.01);
-        glutSolidCube(0.4);
-    glPopMatrix();
-
+    // replace with for loop
+    float place = -3;
+    while (place < 20.0) {
+        glPushMatrix();
+            glColor3f(255, 255, 255);
+            glTranslatef(place, -0.4, 0);
+            glScalef(0.4, 0.2, 0.01);
+            glutSolidCube(0.4);
+        glPopMatrix();
+        place += 0.3;
+    }
 }
 
 void display() {
@@ -189,7 +94,7 @@ void display() {
 void idle_move() {
     x_pos+=0.01;
     angle += 10;
-    if (road_speed > -2.4) {road_speed -= 0.01;}
+    road_speed -= 0.02;
     if (angle > 360) {angle = 0;}
     glutPostRedisplay();
 }
@@ -200,7 +105,7 @@ void main(int argc, char **argv) {
 
 	glutInitWindowSize(500,500);
 	glutInitWindowPosition(500,200);
-    glutCreateWindow("Sculpture Tool");
+    glutCreateWindow("Car");
 
     // glutMouseFunc(mouseFunc);
 
