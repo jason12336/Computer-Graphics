@@ -5,22 +5,41 @@
 
 GLubyte image [64][64][3];
 float rotate = 0;
+float rotate2 = 45;
 
 void drawShape() {
     glBegin(GL_POLYGON);
         glColor3f(0.0, 1.0, 1.0);
 
         glTexCoord2f(0, 1);
-        glVertex3f(-0.5, 0.5, 0.0); // bottom right
+        glVertex3f(-0.5, 0.5, 0.0); // top left
 
         glTexCoord2f(0, 0);
         glVertex3f(0.5, 0.5, 0.0); // top right 
 
         glTexCoord2f(1, 0);
-        glVertex3f(0.5, -0.5, 0.0); // top left
+        glVertex3f(0.5, -0.5, 0.0); // bottom right
 
         glTexCoord2f(1, 1);
         glVertex3f(-0.5, -0.5, 0.0); // bottom left
+    glEnd();
+}
+
+void drawOtherShape() {
+    glBegin(GL_POLYGON);
+        glColor3f(0.25, 0.25, 0.0);
+
+        glTexCoord2f(0, 1);
+        glVertex3f(-0.25, 0.25, 0); // top left
+
+        glTexCoord2f(0, 0);
+        glVertex3f(0.25, 0.25, 0); // top right 
+
+        glTexCoord2f(1, 0);
+        glVertex3f(0.25, -0.25, 0); // bottom right
+
+        glTexCoord2f(1, 1);
+        glVertex3f(-0.25, -0.25, 0); // bottom left
     glEnd();
 }
 
@@ -37,6 +56,11 @@ void display() {
         drawShape();
     glPopMatrix();
 
+    glPushMatrix();
+        glTranslatef(0.75, 0.75, 0);
+        glRotatef(rotate2, 0, 0, 1);
+        drawOtherShape();
+    glPopMatrix();
 
     glEnable(GL_TEXTURE_2D);
 
@@ -46,7 +70,13 @@ void display() {
 
 void idle() {
     rotate += 0.1;
+    rotate2 -= 0.01;
     if (rotate >= 360) rotate = 0;
+    if (rotate2 <= -360) rotate2 = 0;
+
+    // if (move_x >= 0.75) move_y -= 0.01;
+    // if (move_y <= -0.25) move_x -=0.01;
+
     glutPostRedisplay();
     // printf("%.2f", rotate);
 }

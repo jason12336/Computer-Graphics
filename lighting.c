@@ -24,12 +24,12 @@ int STATE = GLUT_UP;
 
 void display(void)
 {
-	GLfloat  ambient[4] = {0.3, 0.0, 0.0, 1.0};
-	GLfloat  diffuse[4] = {0.6, 0.0, 0.0, 1.0};
-	GLfloat specular[4] = {0.8, 0.6, 0.6, 1.0};
+	GLfloat  ambient[4] = {0.3, 0.0, 0.0, 1.0}; // defines brightness of object with or without light source
+	GLfloat  diffuse[4] = {0.6, 0.0, 0.0, 1.0}; // defines the color of the object when light hits it
+	GLfloat specular[4] = {0.8, 0.6, 0.6, 1.0}; // defines the color of the shine when light hits it
 	GLfloat shininess = 32.0;
-	GLfloat normal[3] = {0.0,0.0,1.0};
-	GLfloat position[4] = {1.0,1.0,1.0,1.0};
+	GLfloat normal[3] = {1.0,0.0,1.0}; // vector perpendicular to the objects surface to calculate 
+	GLfloat position[4] = {1.0,1.0,1.0,1.0}; // position of the light source 
 
 	glClearColor(0.0,0.0,1.0,1.0);
 
